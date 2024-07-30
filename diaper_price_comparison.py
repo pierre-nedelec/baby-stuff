@@ -1,4 +1,6 @@
-def calculate_annual_costs(
+#!/bin/python
+
+def calculate_lifetime_costs(
     diapers_per_day,
     diaper_info_redyper,
     diaper_info_pamper,
@@ -46,7 +48,7 @@ def calculate_annual_costs(
 
 
 def main():
-    # Updated diapers per day and prices based on latest data
+    # Number of diapers used per day for each stage
     diapers_per_day = [
         10,
         9,
@@ -55,8 +57,9 @@ def main():
         4,
         4,
         3,
-    ]  # Number of diapers used per day for each stage
-    months_per_stage = [1, 3, 4, 16, 12, 12, 4]  # Number of months each stage lasts
+    ]
+    # Number of months each stage lasts
+    months_per_stage = [1, 3, 4, 16, 12, 12, 4]
 
     # REDYPER information: list of dicts with price and count per stage
     diaper_info_redyper = [
@@ -80,16 +83,17 @@ def main():
         {"price": 29, "count": 50},  # Stage 7: Size 6
     ]
 
-    subscription_cost_redyper = 34  # Monthly subscription cost for REDYPER
+    # Monthly subscription cost for REDYPER
+    subscription_cost_redyper = 34
 
-    # Calculate annual costs
+    # Calculate lifetime costs
     (
-        annual_cost_redyper,
-        annual_cost_pamper,
+        lifetime_cost_redyper,
+        lifetime_cost_pamper,
         total_diapers_per_stage,
         cost_per_stage_redyper,
         cost_per_stage_pamper,
-    ) = calculate_annual_costs(
+    ) = calculate_lifetime_costs(
         diapers_per_day,
         diaper_info_redyper,
         diaper_info_pamper,
@@ -97,8 +101,8 @@ def main():
         subscription_cost_redyper,
     )
 
-    print(f"Annual cost for REDYPER: ${annual_cost_redyper:.2f}")
-    print(f"Annual cost for Pamper: ${annual_cost_pamper:.2f}")
+    print(f"Lifetime cost for REDYPER: ${lifetime_cost_redyper:.2f}")
+    print(f"Lifetime cost for Pamper: ${lifetime_cost_pamper:.2f}")
     print(f"Total diapers used per stage: {total_diapers_per_stage}")
     print(f"Cost per stage for REDYPER: {cost_per_stage_redyper}")
     print(f"Cost per stage for Pamper: {cost_per_stage_pamper}")
